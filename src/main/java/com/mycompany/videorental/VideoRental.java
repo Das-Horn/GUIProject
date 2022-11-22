@@ -12,6 +12,9 @@ package com.mycompany.videorental;
 public class VideoRental {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        LoginForm LG = new LoginForm(null, true);
+        LG.main(args);
+        
+        
     }
 }
