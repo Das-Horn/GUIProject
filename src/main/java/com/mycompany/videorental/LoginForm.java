@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package com.mycompany.videorental;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -33,7 +35,7 @@ public class LoginForm extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        UsrEmail = new javax.swing.JTextField();
         SignInButton = new javax.swing.JButton();
         ForgotPassword = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -118,7 +120,7 @@ public class LoginForm extends javax.swing.JDialog {
                                     .addComponent(jLabel1)
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel3)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(UsrEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 57, Short.MAX_VALUE))
                             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
@@ -149,7 +151,7 @@ public class LoginForm extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(UsrEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -171,8 +173,15 @@ public class LoginForm extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SignInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignInButtonActionPerformed
+        String usrEmail = UsrEmail.getText();
+        Pattern emailPattern = Pattern.compile("([A-z0-9]+)@([A-z0-9]+)\\.([A-z0-9]{1,5})"); // Test for good email address regex
+        Matcher emailTest = emailPattern.matcher(usrEmail);
+        if(emailTest.find()) {
+            System.out.println("Email found");
+        } else {
+            System.out.println("Email Failed");
+        }
         this.dispose();
-        System.out.println("Logging in...175 LF");
     }//GEN-LAST:event_SignInButtonActionPerformed
 
     private void RegisterNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterNewUserActionPerformed
@@ -231,6 +240,7 @@ public class LoginForm extends javax.swing.JDialog {
     private javax.swing.JLabel ForgotPassword;
     private javax.swing.JButton RegisterNewUser;
     private javax.swing.JButton SignInButton;
+    private javax.swing.JTextField UsrEmail;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -238,6 +248,5 @@ public class LoginForm extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
