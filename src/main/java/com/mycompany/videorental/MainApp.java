@@ -26,17 +26,61 @@ public class MainApp extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        MainTabs = new javax.swing.JTabbedPane();
+        Videos = new javax.swing.JPanel();
+        Account = new javax.swing.JPanel();
+        Subscribe = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout VideosLayout = new javax.swing.GroupLayout(Videos);
+        Videos.setLayout(VideosLayout);
+        VideosLayout.setHorizontalGroup(
+            VideosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        VideosLayout.setVerticalGroup(
+            VideosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 269, Short.MAX_VALUE)
+        );
+
+        MainTabs.addTab("Videos", Videos);
+
+        javax.swing.GroupLayout AccountLayout = new javax.swing.GroupLayout(Account);
+        Account.setLayout(AccountLayout);
+        AccountLayout.setHorizontalGroup(
+            AccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        AccountLayout.setVerticalGroup(
+            AccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 269, Short.MAX_VALUE)
+        );
+
+        MainTabs.addTab("Account", Account);
+
+        javax.swing.GroupLayout SubscribeLayout = new javax.swing.GroupLayout(Subscribe);
+        Subscribe.setLayout(SubscribeLayout);
+        SubscribeLayout.setHorizontalGroup(
+            SubscribeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        SubscribeLayout.setVerticalGroup(
+            SubscribeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 269, Short.MAX_VALUE)
+        );
+
+        MainTabs.addTab("Subscribe", Subscribe);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(MainTabs)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(MainTabs)
         );
 
         pack();
@@ -78,5 +122,9 @@ public class MainApp extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Account;
+    private javax.swing.JTabbedPane MainTabs;
+    private javax.swing.JPanel Subscribe;
+    private javax.swing.JPanel Videos;
     // End of variables declaration//GEN-END:variables
 }

@@ -12,9 +12,10 @@ package com.mycompany.videorental;
 public class VideoRental {
 
     public static void main(String[] args) {
-        LoginForm LG = new LoginForm(null, true);
-        LG.main(args);
+        // Open Video Rental Application
+        MainApp.main(args);
         
-        
+        // Login Logic
+        LoginForm.main(args);
     }
 }
