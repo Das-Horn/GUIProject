@@ -112,7 +112,8 @@ public class MainApp extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MainApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        // Open Login Form
+        LoginForm.main(args);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -120,6 +121,9 @@ public class MainApp extends javax.swing.JFrame {
             }
         });
     }
+    
+    //User Variables
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Account;

@@ -14,8 +14,5 @@ public class VideoRental {
     public static void main(String[] args) {
         // Open Video Rental Application
         MainApp.main(args);
-        
-        // Login Logic
-        LoginForm.main(args);
     }
 }

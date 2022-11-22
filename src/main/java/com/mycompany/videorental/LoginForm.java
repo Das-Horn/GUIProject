@@ -171,7 +171,7 @@ public class LoginForm extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SignInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignInButtonActionPerformed
-        loggedIn = true;
+        this.dispose();
         System.out.println("Logging in...175 LF");
     }//GEN-LAST:event_SignInButtonActionPerformed
 
