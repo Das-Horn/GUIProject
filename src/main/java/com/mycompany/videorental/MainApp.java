@@ -112,6 +112,7 @@ public class MainApp extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MainApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
         // Open Login Form
         LoginForm.main(args);
         /* Create and display the form */
@@ -124,7 +125,8 @@ public class MainApp extends javax.swing.JFrame {
     
     //User Variables
     
-
+    DBComms DB = new DBComms();
+    Manager MG = new Manager();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Account;
     private javax.swing.JTabbedPane MainTabs;
