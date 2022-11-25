@@ -91,7 +91,7 @@ public class MainApp extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 204, 255));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 255), 1, true));
 
-        Icon.setIcon(new javax.swing.ImageIcon("C:\\Users\\Craig\\Documents\\NetBeansProjects\\VideoRental\\Assets\\UserIconFix.png")); // NOI18N
+        Icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/videorental/UserIconFix.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -214,7 +214,6 @@ public class MainApp extends javax.swing.JFrame {
     }
     
     //User Variables
-    
     DBComms DB = new DBComms();
     Manager MG = new Manager();
     // Variables declaration - do not modify//GEN-BEGIN:variables
