@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package com.mycompany.videorental;
+import java.awt.event.ActionEvent;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -87,6 +88,11 @@ public class LoginForm extends javax.swing.JDialog {
         SignInButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SignInButtonActionPerformed(evt);
+            }
+        });
+        SignInButton.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                SignInButtonKeyPressed(evt);
             }
         });
 
@@ -187,6 +193,16 @@ public class LoginForm extends javax.swing.JDialog {
     private void RegisterNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterNewUserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_RegisterNewUserActionPerformed
+
+    private void SignInButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SignInButtonKeyPressed
+        // TODO add enter key log in functionality
+//        Char Pressed : 
+//        Key Code : 10
+//        Enter Key output
+        if(evt.getKeyCode() == 10) {
+            this.SignInButtonActionPerformed(new ActionEvent(this,0, "") );
+        }
+    }//GEN-LAST:event_SignInButtonKeyPressed
 
     /**
      * @param args the command line arguments
