@@ -31,8 +31,8 @@ public class DBComms {
             cnfex.printStackTrace();
         }
     }
-    ResultSet getMovies() throws SQLException {
-            String sqlStr = "Select * from Movies";
+    ResultSet getTable(String tableName) throws SQLException { // Method to get all entries for a table
+            String sqlStr = "Select * from "+tableName;
             connection = DriverManager.getConnection(dbURL);
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sqlStr);
@@ -42,5 +42,5 @@ public class DBComms {
 
         
     
-    }
+ }
 
