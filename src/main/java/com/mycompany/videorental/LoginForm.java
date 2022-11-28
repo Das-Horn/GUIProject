@@ -34,7 +34,7 @@ public class LoginForm extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        UsrPass = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         UsrEmail = new javax.swing.JTextField();
         SignInButton = new javax.swing.JButton();
@@ -141,7 +141,7 @@ public class LoginForm extends javax.swing.JDialog {
                             .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(UsrPass, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel1)
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel3)
@@ -164,7 +164,7 @@ public class LoginForm extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(UsrPass, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(SignInButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -204,12 +204,17 @@ public class LoginForm extends javax.swing.JDialog {
         if(evt.getKeyCode() == 10) {
             this.SignInButtonActionPerformed(new ActionEvent(this,0, "") );
         }
+        MG.checkLogin(
+                UsrEmail.getText(),
+                UsrPass.getText(),
+                DB
+        );
     }//GEN-LAST:event_SignInButtonKeyPressed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[], Manager MGR, DBComms DBS) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -233,6 +238,10 @@ public class LoginForm extends javax.swing.JDialog {
         }
         //</editor-fold>
 
+        //Copy Vars
+        MG = MGR;
+        DB = DBS;
+        
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -253,6 +262,8 @@ public class LoginForm extends javax.swing.JDialog {
     }
     
     //User Variables
+    static Manager MG;
+    static DBComms DB;
     static boolean loggedIn = false;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ErrorText;
@@ -260,12 +271,12 @@ public class LoginForm extends javax.swing.JDialog {
     private javax.swing.JButton RegisterNewUser;
     private javax.swing.JButton SignInButton;
     private javax.swing.JTextField UsrEmail;
+    private javax.swing.JTextField UsrPass;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

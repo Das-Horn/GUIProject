@@ -91,7 +91,7 @@ public class MainApp extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 204, 255));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 204, 255), 1, true));
 
-        Icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/videorental/UserIconFix.png"))); // NOI18N
+        Icon.setIcon(new javax.swing.ImageIcon("C:\\Users\\Craig\\OneDrive - Technological University Dublin\\Documents\\NetBeansProjects\\VideoRental\\src\\main\\java\\com\\mycompany\\videorental\\UserIconFix.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -204,7 +204,7 @@ public class MainApp extends javax.swing.JFrame {
         //</editor-fold>
         
         // Open Login Form
-        LoginForm.main(args);
+        LoginForm.main(args, MG, DB);
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -214,8 +214,8 @@ public class MainApp extends javax.swing.JFrame {
     }
     
     //User Variables
-    DBComms DB = new DBComms();
-    Manager MG = new Manager();
+    static DBComms DB = new DBComms();
+    static Manager MG = new Manager();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Account;
     private javax.swing.JLabel AccountName;

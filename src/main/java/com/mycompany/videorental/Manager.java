@@ -30,4 +30,8 @@ public class Manager {
     public void getAllMovieIDs(DBComms DB) {
         
     }
+    
+    public void checkLogin(String uName, String pass, DBComms DB) {
+        System.out.println(DB.checkLogin(uName, pass));
+    }
 }

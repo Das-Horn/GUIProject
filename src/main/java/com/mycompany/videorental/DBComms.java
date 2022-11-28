@@ -31,14 +31,29 @@ public class DBComms {
             cnfex.printStackTrace();
         }
     }
-    ResultSet getTable(String tableName) throws SQLException { // Method to get all entries for a table
+    public ResultSet getTable(String tableName) throws SQLException { // Method to get all entries for a table
             String sqlStr = "Select * from "+tableName;
             connection = DriverManager.getConnection(dbURL);
             statement = connection.createStatement();
             resultSet = statement.executeQuery(sqlStr);
             
             return resultSet;
-        } 
+    } 
+    
+    public boolean checkLogin(String uName, String pass) {
+            try {
+                String sqlStr = "SELECT * FROM Accounts WHERE email='"+uName+"' AND password='"+pass+"'";
+                connection = DriverManager.getConnection(dbURL);
+                statement = connection.createStatement();
+                resultSet = statement.executeQuery(sqlStr);
+                if(resultSet.next()) {
+                    return true;
+                }
+            } catch(SQLException e) {
+                System.out.println(e);
+            }
+            return false;
+    }
 
         
     
