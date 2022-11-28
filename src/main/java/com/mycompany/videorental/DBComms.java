@@ -19,7 +19,7 @@ public class DBComms {
     Connection connection = null;
     Statement statement = null;
     ResultSet resultSet = null;
-    String msAccDB = "../VideoRentalDB.accdb";
+    String msAccDB = "./VideoRentalDB.accdb";
     String dbURL = "jdbc:ucanaccess://" + msAccDB;
     
     public DBComms() {
