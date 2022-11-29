@@ -55,7 +55,7 @@ public class DBComms {
             return false;
     }
     
-        public void addUser(String email, String name, String password) {
+    public void addUser(String email, String name, String password) {
         try {
             String sqlStr = "INSERT INTO Accounts (accountName, email, password) Values ("+email+name+password+")";
             connection = DriverManager.getConnection(dbURL);
@@ -69,7 +69,7 @@ public class DBComms {
         
     ResultSet getMovies() {
             try {
-                String sqlStr = "Select * from Movies";
+                String sqlStr = "SELECT * FROM Movies";
                 connection = DriverManager.getConnection(dbURL);
                 statement = connection.createStatement();
                 resultSet = statement.executeQuery(sqlStr);
@@ -82,7 +82,7 @@ public class DBComms {
     int getMoviesLength() {
             int result = 0;
             try {
-                String sqlStr = "Select COUNT(*) from Movies";
+                String sqlStr = "SELECT COUNT(*) FROM Movies";
                 connection = DriverManager.getConnection(dbURL);
                 statement = connection.createStatement();
                 resultSet = statement.executeQuery(sqlStr);
