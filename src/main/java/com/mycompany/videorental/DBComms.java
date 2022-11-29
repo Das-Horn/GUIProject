@@ -86,6 +86,7 @@ public class DBComms {
                 connection = DriverManager.getConnection(dbURL);
                 statement = connection.createStatement();
                 resultSet = statement.executeQuery(sqlStr);
+                resultSet.next();
                 result = resultSet.getInt(1);
             } catch (SQLException e) {
                 System.out.println(e);
