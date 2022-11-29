@@ -193,6 +193,7 @@ public class LoginForm extends javax.swing.JDialog {
                 UsrPass.getText(),
                 DB
             );
+            MA.main(new String[] {}, DB, MG);
             this.dispose();
         } else {
             System.out.println("Email Failed");
@@ -212,6 +213,7 @@ public class LoginForm extends javax.swing.JDialog {
             if(emailTest.find()) {
                 break;
             }
+            javax.swing.JOptionPane.showMessageDialog(null, "Not a valid email address please try again.");
         }
         
         Name = javax.swing.JOptionPane.showInputDialog("Please enter a name:");
@@ -224,6 +226,7 @@ public class LoginForm extends javax.swing.JDialog {
             }
             javax.swing.JOptionPane.showMessageDialog(null, "Passwords don't match please try again.");
         }
+        // TODO add comms with db here to create new user.
     }//GEN-LAST:event_RegisterNewUserActionPerformed
 
     private void SignInButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SignInButtonKeyPressed
@@ -235,8 +238,10 @@ public class LoginForm extends javax.swing.JDialog {
 
     /**
      * @param args the command line arguments
+     * @param MGR the manager for the application#
+     * @param DBS the Database connection
      */
-    public static void main(String args[], Manager MGR, DBComms DBS) {
+    public static void main(String args[], Manager MGR, DBComms DBS, MainApp MAP) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -263,6 +268,7 @@ public class LoginForm extends javax.swing.JDialog {
         //Copy Vars
         MG = MGR;
         DB = DBS;
+        MA = MAP;
         
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -286,6 +292,7 @@ public class LoginForm extends javax.swing.JDialog {
     //User Variables
     static Manager MG;
     static DBComms DB;
+    static MainApp MA;
     static boolean loggedIn = false;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ErrorText;

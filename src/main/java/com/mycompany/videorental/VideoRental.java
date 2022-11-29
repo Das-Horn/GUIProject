@@ -12,7 +12,14 @@ package com.mycompany.videorental;
 public class VideoRental {
 
     public static void main(String[] args) {
-        // Open Video Rental Application
-        MainApp.main(args);
+        // Set All Variables
+        MainApp MA = new MainApp();
+        LoginForm LF = new LoginForm(null ,true);
+        DBComms DB = new DBComms();
+        Manager MG = new Manager();
+        // Start through login Form
+        LF.main(args, MG, DB, MA);
+        
+        
     }
 }

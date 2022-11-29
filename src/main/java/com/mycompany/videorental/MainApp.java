@@ -184,12 +184,15 @@ public class MainApp extends javax.swing.JFrame {
 
     private void MainTabsFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MainTabsFocusGained
         System.out.println("New Tab gained");
+        
     }//GEN-LAST:event_MainTabsFocusGained
 
     /**
      * @param args the command line arguments
+     * @param DBS Database class
+     * @param MGR Manager class reference
      */
-    public static void main(String args[]) {
+    public static void main(String args[], DBComms DBS, Manager MGR) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -213,8 +216,9 @@ public class MainApp extends javax.swing.JFrame {
         }
         //</editor-fold>
         
-        // Open Login Form
-        LoginForm.main(args, MG, DB);
+        DB = DBS;
+        MG = MGR;
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -224,8 +228,8 @@ public class MainApp extends javax.swing.JFrame {
     }
     
     //User Variables
-    static DBComms DB = new DBComms();
-    static Manager MG = new Manager();
+    static DBComms DB;
+    static Manager MG;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Account;
     private javax.swing.JLabel AccountName;
