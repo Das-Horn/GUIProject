@@ -54,8 +54,25 @@ public class DBComms {
             }
             return false;
     }
-
-        
     
- }
-
+        public void addUser(String email, String name, String password) {
+        try {
+            String sqlStr = "INSERT INTO Accounts (accountName, email, password) Values ("+email+name+password+")";
+            connection = DriverManager.getConnection(dbURL);
+            statement = connection.createStatement();
+            statement.executeQuery(sqlStr);  
+        }
+        catch(SQLException e) {
+            System.out.println(e);
+        }
+    }
+        
+    ResultSet getMovies() throws SQLException {
+            String sqlStr = "Select * from Movies";
+            connection = DriverManager.getConnection(dbURL);
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(sqlStr);
+            
+            return resultSet;
+    }
+}
