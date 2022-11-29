@@ -7,34 +7,9 @@
     <packaging>jar</packaging>
     <dependencies>
         <dependency>
-            <groupId>VideoRental</groupId>
-            <artifactId>commons-lang3</artifactId>
-            <version>3.8.1</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>VideoRental</groupId>
-            <artifactId>commons-logging</artifactId>
-            <version>1.2</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>VideoRental</groupId>
-            <artifactId>hsqldb</artifactId>
-            <version>2.5.0</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>VideoRental</groupId>
-            <artifactId>jackcess</artifactId>
-            <version>3.0.1</version>
-            <type>jar</type>
-        </dependency>
-        <dependency>
-            <groupId>VideoRental</groupId>
+            <groupId>net.sf.ucanaccess</groupId>
             <artifactId>ucanaccess</artifactId>
             <version>5.0.1</version>
-            <type>jar</type>
         </dependency>
     </dependencies>
     <properties>

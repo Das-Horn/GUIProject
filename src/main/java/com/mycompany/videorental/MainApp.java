@@ -43,6 +43,12 @@ public class MainApp extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
+        MainTabs.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                MainTabsFocusGained(evt);
+            }
+        });
+
         VideoTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -175,6 +181,10 @@ public class MainApp extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void MainTabsFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MainTabsFocusGained
+        System.out.println("New Tab gained");
+    }//GEN-LAST:event_MainTabsFocusGained
 
     /**
      * @param args the command line arguments

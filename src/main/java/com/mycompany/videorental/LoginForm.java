@@ -188,6 +188,11 @@ public class LoginForm extends javax.swing.JDialog {
         Matcher emailTest = emailPattern.matcher(usrEmail);
         if(emailTest.find()) {
             System.out.println("Email found");
+            MG.checkLogin(
+                UsrEmail.getText(),
+                UsrPass.getText(),
+                DB
+            );
             this.dispose();
         } else {
             System.out.println("Email Failed");
@@ -196,7 +201,29 @@ public class LoginForm extends javax.swing.JDialog {
     }//GEN-LAST:event_SignInButtonActionPerformed
 
     private void RegisterNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterNewUserActionPerformed
-        // TODO add your handling code here:
+        String email;
+        String password;String passCheck;
+        String Name;
+        
+        while(true) { // Loop to find valid Email
+            email = javax.swing.JOptionPane.showInputDialog("Please enter an email address:");
+            Pattern emailPattern = Pattern.compile("([A-z0-9]+)@([A-z0-9]+)\\.([A-z0-9]{1,5})"); // Test for good email address regex
+            Matcher emailTest = emailPattern.matcher(email);
+            if(emailTest.find()) {
+                break;
+            }
+        }
+        
+        Name = javax.swing.JOptionPane.showInputDialog("Please enter a name:");
+        
+        while(true) {
+            password = javax.swing.JOptionPane.showInputDialog("Please enter a password:");
+            passCheck = javax.swing.JOptionPane.showInputDialog("Please retype your password:");
+            if(password.equals(passCheck)) {
+                break;
+            }
+            javax.swing.JOptionPane.showMessageDialog(null, "Passwords don't match please try again.");
+        }
     }//GEN-LAST:event_RegisterNewUserActionPerformed
 
     private void SignInButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SignInButtonKeyPressed
@@ -204,11 +231,6 @@ public class LoginForm extends javax.swing.JDialog {
         if(evt.getKeyCode() == 10) {
             this.SignInButtonActionPerformed(new ActionEvent(this,0, "") );
         }
-        MG.checkLogin(
-                UsrEmail.getText(),
-                UsrPass.getText(),
-                DB
-        );
     }//GEN-LAST:event_SignInButtonKeyPressed
 
     /**
