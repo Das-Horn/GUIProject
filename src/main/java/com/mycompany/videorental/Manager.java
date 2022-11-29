@@ -31,7 +31,7 @@ public class Manager {
         
     }
     
-    public void checkLogin(String uName, String pass, DBComms DB) {
-        System.out.println(DB.checkLogin(uName, pass));
+    public boolean checkLogin(String uName, String pass, DBComms DB) {
+        return DB.checkLogin(uName, pass);
     }
 }

@@ -189,17 +189,18 @@ public class LoginForm extends javax.swing.JDialog {
         Matcher emailTest = emailPattern.matcher(usrEmail);
         if(emailTest.find()) {
             System.out.println("Email found");
-            MG.checkLogin(
+            boolean lgin = MG.checkLogin(
                 UsrEmail.getText(),
                 UsrPass.getText(),
                 DB
             );
-            MA.main(new String[] {}, DB, MG);
-            this.dispose();
-        } else {
-            System.out.println("Email Failed");
-            ErrorText.setText("Username or password is incorrect.");
-        } 
+            if(lgin) {
+                MA.main(new String[] {}, DB, MG);
+                this.dispose(); 
+            }
+        }
+        System.out.println("Email Failed");
+        ErrorText.setText("Username or password is incorrect.");
     }//GEN-LAST:event_SignInButtonActionPerformed
 
     private void RegisterNewUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterNewUserActionPerformed
