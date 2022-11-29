@@ -80,6 +80,12 @@ public class LoginForm extends javax.swing.JDialog {
 
         jLabel2.setText("Email:");
 
+        UsrPass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                UsrPassKeyPressed(evt);
+            }
+        });
+
         jLabel3.setText("Password:");
 
         SignInButton.setBackground(new java.awt.Color(0, 204, 255));
@@ -89,11 +95,6 @@ public class LoginForm extends javax.swing.JDialog {
         SignInButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SignInButtonActionPerformed(evt);
-            }
-        });
-        SignInButton.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                SignInButtonKeyPressed(evt);
             }
         });
 
@@ -229,12 +230,11 @@ public class LoginForm extends javax.swing.JDialog {
         // TODO add comms with db here to create new user.
     }//GEN-LAST:event_RegisterNewUserActionPerformed
 
-    private void SignInButtonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SignInButtonKeyPressed
-        // Enter Key Code  = 10
+    private void UsrPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UsrPassKeyPressed
         if(evt.getKeyCode() == 10) {
             this.SignInButtonActionPerformed(new ActionEvent(this,0, "") );
         }
-    }//GEN-LAST:event_SignInButtonKeyPressed
+    }//GEN-LAST:event_UsrPassKeyPressed
 
     /**
      * @param args the command line arguments
