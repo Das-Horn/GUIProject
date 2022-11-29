@@ -194,8 +194,9 @@ public class LoginForm extends javax.swing.JDialog {
                 UsrPass.getText(),
                 DB
             );
-            if(lgin) {
+            if(lgin) { 
                 MA.main(new String[] {}, DB, MG);
+                MA.updateInfo();
                 this.dispose(); 
             }
         }

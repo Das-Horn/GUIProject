@@ -4,6 +4,8 @@
  */
 package com.mycompany.videorental;
 
+import java.sql.*;
+
 /**
  *
  * @author Craig
@@ -225,6 +227,37 @@ public class MainApp extends javax.swing.JFrame {
                 new MainApp().setVisible(true);
             }
         });
+    }
+    
+    // User Methods
+    
+    public void updateInfo() {
+        // Update Video Table
+        ResultSet movies = DB.getMovies();
+        int movieLength = DB.getMoviesLength();
+        String[][] Movies = new String[movieLength][];
+        int counter = 0;
+        
+        try {
+            while(movies.next()) {
+                Movies[counter] = new String[] {
+                    movies.getString(2),
+                    movies.getString(3),
+                    movies.getString(4),
+                    movies.getString(5),
+//                    movies.getString(6),
+                };
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        
+        System.out.println(Movies);
+        // Update User Information
+        
+        // Update Subscription Information
+        
+        
     }
     
     //User Variables

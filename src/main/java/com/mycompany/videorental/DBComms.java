@@ -67,12 +67,29 @@ public class DBComms {
         }
     }
         
-    ResultSet getMovies() throws SQLException {
-            String sqlStr = "Select * from Movies";
-            connection = DriverManager.getConnection(dbURL);
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery(sqlStr);
-            
+    ResultSet getMovies() {
+            try {
+                String sqlStr = "Select * from Movies";
+                connection = DriverManager.getConnection(dbURL);
+                statement = connection.createStatement();
+                resultSet = statement.executeQuery(sqlStr);
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
             return resultSet;
+    }
+    
+    int getMoviesLength() {
+            int result = 0;
+            try {
+                String sqlStr = "Select COUNT(*) from Movies";
+                connection = DriverManager.getConnection(dbURL);
+                statement = connection.createStatement();
+                resultSet = statement.executeQuery(sqlStr);
+                result = resultSet.getInt(1);
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+            return result;
     }
 }
