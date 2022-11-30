@@ -57,7 +57,7 @@ public class DBComms {
     
     public void addUser(String email, String name, String password) {
         try {
-            String sqlStr = "INSERT INTO Accounts (email, accountName, password) Values ("+email+","+name+","+password+")";
+            String sqlStr = String.format("INSERT INTO Accounts (accountName, email, password) Values(%s, %s, %s)", name, email, password);
             connection = DriverManager.getConnection(dbURL);
             statement = connection.createStatement();
             statement.executeQuery(sqlStr);  
