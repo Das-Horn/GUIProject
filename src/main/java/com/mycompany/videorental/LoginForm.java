@@ -195,9 +195,10 @@ public class LoginForm extends javax.swing.JDialog {
                 DB
             );
             if(lgin) { 
-                MA.main(new String[] {}, DB, MG);
-                MA.updateInfo();
+                MA.setStatic(DB, MG);
+                MA.setVisible(true);
                 this.dispose(); 
+                MA.updateInfo();
             }
         }
         System.out.println("Email Failed");

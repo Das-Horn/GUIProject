@@ -46,6 +46,7 @@ public class MainApp extends javax.swing.JFrame {
         Subscribe = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Video Rentals");
         setResizable(false);
 
         MainTabs.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -79,6 +80,7 @@ public class MainApp extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        VideoTable.setDebugGraphicsOptions(javax.swing.DebugGraphics.LOG_OPTION);
         jScrollPane2.setViewportView(VideoTable);
 
         javax.swing.GroupLayout VideosLayout = new javax.swing.GroupLayout(Videos);
@@ -188,7 +190,6 @@ public class MainApp extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void MainTabsFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MainTabsFocusGained
-        System.out.println("New Tab gained");
         
     }//GEN-LAST:event_MainTabsFocusGained
 
@@ -223,16 +224,37 @@ public class MainApp extends javax.swing.JFrame {
         
         DB = DBS;
         MG = MGR;
-        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainApp().setVisible(true);
+                new MainApp().setVisible(false);
             }
         });
     }
     
     // User Methods
+    public void setStatic(DBComms DBS, Manager MGR) {
+        DB = DBS;
+        MG = MGR;
+        
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(MainApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(MainApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(MainApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(MainApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+    }
+    
     
     public void updateInfo() {
         // Update Video Table
@@ -264,12 +286,14 @@ public class MainApp extends javax.swing.JFrame {
             System.out.println(e);
         }
         
-        System.out.println(Arrays.deepToString(MovieList));
         DefaultTableModel table = (DefaultTableModel) VideoTable.getModel();
         for (String[] i : MovieList) {
-            table.insertRow(0,i);
+            table.addRow(i);
         }
-        System.out.println(table.toString());
+        table.setNumRows(MovieList.length);
+        VideoTable.setModel(table);
+        VideoTable.repaint();
+        System.out.println("Repainting the table");
         // Update User Information
         
         // Update Subscription Information
