@@ -40,6 +40,28 @@ public class DBComms {
             return resultSet;
     } 
     
+    public String[] getUserData(String email) {
+            try {
+                String sqlStr = "SELECT * FROM Accounts WHERE email='"+email+"'";
+                connection = DriverManager.getConnection(dbURL);
+                statement = connection.createStatement();
+                resultSet = statement.executeQuery(sqlStr);
+                if(resultSet.next()) {
+                    return new String[] {
+                        resultSet.getString("accountName"),
+                        resultSet.getString("accountStatus"),
+                        resultSet.getString("subscriptionID"),
+                        resultSet.getString("email"),
+                        resultSet.getString("moviesRented"),
+                        resultSet.getString("autoRenew"),
+                    };
+                }
+            } catch(SQLException e) {
+                System.out.println(e);
+            }
+            return new String[] {};
+    }
+    
     public boolean checkLogin(String uName, String pass) {
             try {
                 String sqlStr = "SELECT * FROM Accounts WHERE email='"+uName+"' AND password='"+pass+"'";
