@@ -79,10 +79,10 @@ public class DBComms {
     
     public void addUser(String email, String name, String password) {
         try {
-            String sqlStr = String.format("INSERT INTO Accounts (accountName, email, password, subscriptionID, moviesRented, autoRenew) Values('%s','%s', '%s',1,'','false')", name, email, password);
+            String sqlStr = "INSERT INTO Accounts (accountName, email, password, subscriptionID, moviesRented, autoRenew, accountStatus) VALUES ('"+name+"', '"+email+"', '"+password+"', 1, '', 'false', 'none')";
             connection = DriverManager.getConnection(dbURL);
             statement = connection.createStatement();
-            statement.executeQuery(sqlStr);  
+            statement.executeUpdate(sqlStr);  
         }
         catch(SQLException e) {
             System.out.println(e);
