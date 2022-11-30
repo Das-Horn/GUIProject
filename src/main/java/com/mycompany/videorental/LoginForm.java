@@ -230,6 +230,7 @@ public class LoginForm extends javax.swing.JDialog {
             }
             javax.swing.JOptionPane.showMessageDialog(null, "Passwords don't match please try again.");
         }
+        DB.addUser(email, Name, password);
         // TODO add comms with db here to create new user.
     }//GEN-LAST:event_RegisterNewUserActionPerformed
 
