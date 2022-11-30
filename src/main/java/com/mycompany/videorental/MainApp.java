@@ -6,8 +6,8 @@ package com.mycompany.videorental;
 
 import java.awt.Color;
 import java.sql.*;
-import javax.swing.JTable;
-import javax.swing.JScrollPane;
+import javax.swing.table.*;
+import java.util.Arrays;
 
 /**
  *
@@ -33,6 +33,8 @@ public class MainApp extends javax.swing.JFrame {
 
         MainTabs = new javax.swing.JTabbedPane();
         Videos = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        VideoTable = new javax.swing.JTable();
         Account = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         WatchHistory = new javax.swing.JTextArea();
@@ -52,15 +54,42 @@ public class MainApp extends javax.swing.JFrame {
             }
         });
 
+        Videos.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
+
+        VideoTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Length", "Movie Name", "Genre", "Description", "Reating"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(VideoTable);
+
         javax.swing.GroupLayout VideosLayout = new javax.swing.GroupLayout(Videos);
         Videos.setLayout(VideosLayout);
         VideosLayout.setHorizontalGroup(
             VideosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 419, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         VideosLayout.setVerticalGroup(
             VideosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 287, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
         );
 
         MainTabs.addTab("Videos", Videos);
@@ -97,7 +126,7 @@ public class MainApp extends javax.swing.JFrame {
             .addGroup(AccountLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(AccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 407, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
                     .addGroup(AccountLayout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -133,7 +162,7 @@ public class MainApp extends javax.swing.JFrame {
         Subscribe.setLayout(SubscribeLayout);
         SubscribeLayout.setHorizontalGroup(
             SubscribeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 419, Short.MAX_VALUE)
+            .addGap(0, 452, Short.MAX_VALUE)
         );
         SubscribeLayout.setVerticalGroup(
             SubscribeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,8 +237,8 @@ public class MainApp extends javax.swing.JFrame {
     public void updateInfo() {
         // Update Video Table
         String[] columns = new String[] {
-          "Movie Name",
           "Length",
+          "Movie Name",
           "Genre",
           "Description",
           "Rating"
@@ -235,14 +264,12 @@ public class MainApp extends javax.swing.JFrame {
             System.out.println(e);
         }
         
-        System.out.println(MovieList);
-        JTable videoTable = new JTable(MovieList, columns);
-        JScrollPane sp = new JScrollPane(videoTable);
-        videoTable.setBounds( 0,0, 419, 287);
-        videoTable.setSize(419, 287);
-        videoTable.setBackground(Color.red);
-        videoTable.setVisible(true);
-        Videos.add(sp);
+        System.out.println(Arrays.deepToString(MovieList));
+        DefaultTableModel table = (DefaultTableModel) VideoTable.getModel();
+        for (String[] i : MovieList) {
+            table.insertRow(0,i);
+        }
+        System.out.println(table.toString());
         // Update User Information
         
         // Update Subscription Information
@@ -259,11 +286,13 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JLabel Icon;
     private javax.swing.JTabbedPane MainTabs;
     private javax.swing.JPanel Subscribe;
+    private javax.swing.JTable VideoTable;
     private javax.swing.JPanel Videos;
     private javax.swing.JTextArea WatchHistory;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }
