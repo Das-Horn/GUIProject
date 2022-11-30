@@ -79,7 +79,7 @@ public class DBComms {
     
     public void addUser(String email, String name, String password) {
         try {
-            String sqlStr = String.format("INSERT INTO Accounts (accountName, email, password, subscriptionID, moviesRented, autoRenew) Values(%s, %s, %s,0,"",false)", name, email, password);
+            String sqlStr = String.format("INSERT INTO Accounts (accountName, email, password, subscriptionID, moviesRented, autoRenew) Values(%s, %s, %s,1,"",false)", name, email, password);
             connection = DriverManager.getConnection(dbURL);
             statement = connection.createStatement();
             statement.executeQuery(sqlStr);  
