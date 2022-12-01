@@ -421,7 +421,6 @@ public class MainApp extends javax.swing.JFrame {
         AccountStatus.setText(MG.accountStatus);
         WatchHistory.setText(MG.moviesRented);
         System.out.println(AccountName.getText());
-        
         // Update Subscription Information
         MG.getSubscriptionDetails(DB);
         
