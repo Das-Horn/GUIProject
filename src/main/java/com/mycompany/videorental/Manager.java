@@ -23,6 +23,8 @@ public class Manager {
     boolean autoRenew;
     //      Movie details
     int[]   movieIDs;
+    String  subType;
+    String  subCost;
     
     // Methods
     //      Account Methods
@@ -41,7 +43,15 @@ public class Manager {
     }
     
     public void getSubscriptionDetails(DBComms DB) {
-        
+        String[] subsDetails = DB.getSubscriptions();
+        Arrays.toString(subsDetails);
+        try{
+            subType = subsDetails[0];
+            subCost = subsDetails[1];   
+        }
+        catch(Exception e) {
+            System.out.println("Manager error: "+e);
+        } 
     }
     //      Movie Methods
     public void getAllMovieIDs(DBComms DB) {
