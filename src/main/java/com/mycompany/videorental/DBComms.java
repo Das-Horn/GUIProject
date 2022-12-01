@@ -62,19 +62,22 @@ public class DBComms {
             return new String[] {};
     }
     
-    public boolean checkLogin(String uName, String pass) {
+    public boolean[] checkLogin(String uName, String pass) {
             try {
                 String sqlStr = "SELECT * FROM Accounts WHERE email='"+uName+"' AND password='"+pass+"'";
                 connection = DriverManager.getConnection(dbURL);
                 statement = connection.createStatement();
                 resultSet = statement.executeQuery(sqlStr);
                 if(resultSet.next()) {
-                    return true;
+                    return new boolean[] {
+                        true,
+                        resultSet.getBoolean("admin")
+                    };
                 }
             } catch(SQLException e) {
                 System.out.println(e);
             }
-            return false;
+            return new boolean[] {false , false};
     }
     
     public void addUser(String email, String name, String password) {

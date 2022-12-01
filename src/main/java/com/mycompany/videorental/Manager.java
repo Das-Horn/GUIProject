@@ -14,6 +14,7 @@ public class Manager {
     // Variables
     //      Account Values
     boolean loggedIn;
+    boolean admin;
     String  accountName;
     String  accountEmail;
     String  accountStatus;
@@ -45,7 +46,9 @@ public class Manager {
     
     public boolean checkLogin(String uName, String pass, DBComms DB) {
         accountEmail = uName;
-        loggedIn = DB.checkLogin(uName, pass);
+        boolean[] details = DB.checkLogin(uName, pass);
+        loggedIn = details[0];
+        admin = details[1];
         return loggedIn;
     }
 }
