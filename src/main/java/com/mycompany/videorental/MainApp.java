@@ -51,7 +51,7 @@ public class MainApp extends javax.swing.JFrame {
         lifetimeSubscribeButt = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
         monthlyText = new javax.swing.JTextPane();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -216,7 +216,7 @@ public class MainApp extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Enter a video name to rent it:");
+        jLabel2.setText("Enter a video name to rent it:");
 
         monthlyText.setEditable(false);
         jScrollPane6.setViewportView(monthlyText);
@@ -238,7 +238,7 @@ public class MainApp extends javax.swing.JFrame {
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(SubscribeLayout.createSequentialGroup()
                         .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -278,7 +278,7 @@ public class MainApp extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SubscribeLayout.createSequentialGroup()
                         .addComponent(lifetimeSubscribeButt, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(16, 16, 16)))
-                .addComponent(jLabel1)
+                .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(SubscribeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
@@ -433,7 +433,16 @@ public class MainApp extends javax.swing.JFrame {
         System.out.println(AccountName.getText());
         
         // Update Subscription Information
+        MG.getSubscriptionDetails(DB);
         
+        monthlyText.setText(MG.subType[0]);
+        monthlySubButt.setText(MG.subCost[0]);
+        
+        yearlyText.setText(MG.subType[1]);
+        yearlySubButt.setText(MG.subCost[1]);
+        
+        lifetimeText.setText(MG.subType[2]);
+        yearlySubButt.setText(MG.subCost[2]);
         
         
     }
@@ -453,7 +462,9 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JTable VideoTable;
     private javax.swing.JPanel Videos;
     private javax.swing.JTextArea WatchHistory;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
