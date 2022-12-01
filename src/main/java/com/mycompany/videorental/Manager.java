@@ -23,8 +23,8 @@ public class Manager {
     boolean autoRenew;
     //      Movie details
     int[]   movieIDs;
-    String  subType;
-    String  subCost;
+    String[]  subType = {"","",""};
+    String[]  subCost = {"","",""};
     
     // Methods
     //      Account Methods
@@ -46,8 +46,13 @@ public class Manager {
         String[] subsDetails = DB.getSubscriptions();
         Arrays.toString(subsDetails);
         try{
-            subType = subsDetails[0];
-            subCost = subsDetails[1];   
+            int i = 0;
+            while(i < 4) {
+                subType[i] = subsDetails[i];
+                subCost[i] = subsDetails[i];
+                i++;
+            } 
+             
         }
         catch(Exception e) {
             System.out.println("Manager error: "+e);
