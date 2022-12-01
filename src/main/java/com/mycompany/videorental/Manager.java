@@ -47,9 +47,9 @@ public class Manager {
         Arrays.toString(subsDetails);
         try{
             int i = 0;
-            while(i < 4) {
+            while(i < 3) {
                 subType[i] = subsDetails[i];
-                subCost[i] = subsDetails[i];
+                subCost[i] = subsDetails[i+1];
                 i++;
             } 
              
