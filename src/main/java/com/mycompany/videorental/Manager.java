@@ -18,8 +18,9 @@ public class Manager {
     String  accountName;
     String  accountEmail;
     String  accountStatus;
-    int     subscriptionID;
-    String     moviesRented;
+    String  subscriptionID;
+    String  accountID;
+    String  moviesRented;
     boolean autoRenew;
     //      Movie details
     int[]   movieIDs;
@@ -32,9 +33,9 @@ public class Manager {
         String[] userDetails = DB.getUserData(accountEmail);
         Arrays.toString(userDetails);
         try {
-            accountName = userDetails[0];
-            accountStatus = userDetails[1];
-            subscriptionID = Integer.getInteger(userDetails[2]);
+            accountID = userDetails[0];
+            accountName = userDetails[1];
+            subscriptionID = userDetails[2];
             moviesRented = userDetails[4];
             autoRenew = userDetails[5].equals("true");
         } catch (Exception e) {

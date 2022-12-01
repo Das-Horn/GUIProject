@@ -8,6 +8,8 @@ import java.awt.Color;
 import java.sql.*;
 import javax.swing.table.*;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -292,15 +294,30 @@ public class MainApp extends javax.swing.JFrame {
     }//GEN-LAST:event_MainTabsFocusGained
 
     private void monthlySubButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthlySubButtActionPerformed
-        // TODO add your handling code here:
+        try {
+            DB.subscribe(1, MG.accountID);
+            monthlySubButt.setText("Subscribed");
+        } catch (SQLException ex) {
+            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_monthlySubButtActionPerformed
 
     private void yearlySubButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearlySubButtActionPerformed
-        // TODO add your handling code here:
+        try {
+            DB.subscribe(2, MG.accountID);
+            yearlySubButt.setText("Subscribed");
+        } catch (SQLException ex) {
+            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_yearlySubButtActionPerformed
 
     private void lifetimeSubButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lifetimeSubButtActionPerformed
-        // TODO add your handling code here:
+        try {
+            DB.subscribe(3, MG.accountID);
+            lifetimeSubButt.setText("Subscribed");
+        } catch (SQLException ex) {
+            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_lifetimeSubButtActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -413,7 +430,7 @@ public class MainApp extends javax.swing.JFrame {
         
         AccountName.setText(MG.accountName);
         Email.setText(MG.accountEmail);
-        AccountStatus.setText(MG.accountStatus);
+        AccountStatus.setText(MG.subscriptionID);
         WatchHistory.setText(MG.moviesRented);
         System.out.println(AccountName.getText());
         
