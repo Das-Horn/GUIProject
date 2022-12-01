@@ -71,8 +71,8 @@ public class DBComms {
                 resultSet = statement.executeQuery(sqlStr);
                 if(resultSet.next()) {
                     return new String[] {
+                        resultSet.getString("ID"),
                         resultSet.getString("accountName"),
-                        resultSet.getString("accountStatus"),
                         resultSet.getString("subscriptionID"),
                         resultSet.getString("email"),
                         resultSet.getString("moviesRented"),
@@ -162,4 +162,11 @@ public class DBComms {
        }
        return new String[] {};
    } 
+   
+   public void subscribe(int id, String accountName) throws SQLException {
+       String sqlStr = "UPDATE Accounts SET subscriptionID ="+id+" WHERE ID = "+accountName;
+       connection = DriverManager.getConnection(dbURL);
+       statement = connection.createStatement();
+       statement.executeUpdate(sqlStr);
+   }
 }
