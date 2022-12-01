@@ -115,4 +115,19 @@ public class DBComms {
             }
             return result;
     }
+    
+   public String[] getSubscriptions() {
+       try {
+           String sqlStr = "SELECT * FROM Subscriptions WHERE NOT 'ID' = 4";
+           connection = DriverManager.getConnection(dbURL);
+           statement = connection.createStatement();
+           resultSet = statement.executeQuery(sqlStr);
+           if (resultSet.next()) {
+               
+           }
+       }
+       catch(Exception e){
+           
+       }
+   } 
 }

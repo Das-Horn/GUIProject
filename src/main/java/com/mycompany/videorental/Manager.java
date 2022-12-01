@@ -38,6 +38,10 @@ public class Manager {
             System.out.println("Error Fetching Account Details");
         }
     }
+    
+    public void getSubscriptionDetails(DBComms DB) {
+        
+    }
     //      Movie Methods
     public void getAllMovieIDs(DBComms DB) {
         
