@@ -125,12 +125,14 @@ public class DBComms {
            connection = DriverManager.getConnection(dbURL);
            statement = connection.createStatement();
            resultSet = statement.executeQuery(sqlStr);
-           if (resultSet.next()) {
-               return new String[] {
-                   resultSet.getString("subscriptionType"),
-                   resultSet.getString("subscriptionCost")
-               };
+           String[] buffer = {"","","","","",""};
+           int i = 0;
+           while (resultSet.next()) {
+                   buffer[i] = resultSet.getString("subscriptionType");
+                   buffer[i+1] = resultSet.getString("subscriptionCost");
+                   i = i + 2;
            }
+           return buffer;
        }
        catch(Exception e){
            System.out.println("Database Error: "+e);
