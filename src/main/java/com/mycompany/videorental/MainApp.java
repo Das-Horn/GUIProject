@@ -44,6 +44,18 @@ public class MainApp extends javax.swing.JFrame {
         Email = new javax.swing.JLabel();
         AccountStatus = new javax.swing.JLabel();
         Subscribe = new javax.swing.JPanel();
+        monthlySubButt = new javax.swing.JButton();
+        yearlySubButt = new javax.swing.JButton();
+        lifetimeSubscribeButt = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        monthlyText = new javax.swing.JTextPane();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        lifetimeText = new javax.swing.JTextPane();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        yearlyText = new javax.swing.JTextPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Video Rentals");
@@ -90,7 +102,7 @@ public class MainApp extends javax.swing.JFrame {
         );
         VideosLayout.setVerticalGroup(
             VideosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
         );
 
         MainTabs.addTab("Videos", Videos);
@@ -127,7 +139,7 @@ public class MainApp extends javax.swing.JFrame {
             .addGroup(AccountLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(AccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
                     .addGroup(AccountLayout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -158,20 +170,107 @@ public class MainApp extends javax.swing.JFrame {
 
         MainTabs.addTab("Account", Account);
 
+        monthlySubButt.setText("jButton1");
+        monthlySubButt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                monthlySubButtActionPerformed(evt);
+            }
+        });
+
+        yearlySubButt.setText("jButton1");
+        yearlySubButt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yearlySubButtActionPerformed(evt);
+            }
+        });
+
+        lifetimeSubscribeButt.setText("jButton1");
+        lifetimeSubscribeButt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lifetimeSubscribeButtActionPerformed(evt);
+            }
+        });
+
+        jTextField1.setText("jTextField1");
+
+        jButton4.setText("€4.99");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Enter a video name to rent it:");
+
+        monthlyText.setEditable(false);
+        jScrollPane6.setViewportView(monthlyText);
+
+        lifetimeText.setEditable(false);
+        jScrollPane7.setViewportView(lifetimeText);
+
+        yearlyText.setEditable(false);
+        jScrollPane8.setViewportView(yearlyText);
+
         javax.swing.GroupLayout SubscribeLayout = new javax.swing.GroupLayout(Subscribe);
         Subscribe.setLayout(SubscribeLayout);
         SubscribeLayout.setHorizontalGroup(
             SubscribeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 452, Short.MAX_VALUE)
+            .addGroup(SubscribeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(SubscribeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SubscribeLayout.createSequentialGroup()
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(SubscribeLayout.createSequentialGroup()
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lifetimeSubscribeButt, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(SubscribeLayout.createSequentialGroup()
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(monthlySubButt, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(SubscribeLayout.createSequentialGroup()
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(yearlySubButt, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(228, Short.MAX_VALUE))
         );
         SubscribeLayout.setVerticalGroup(
             SubscribeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 287, Short.MAX_VALUE)
+            .addGroup(SubscribeLayout.createSequentialGroup()
+                .addGroup(SubscribeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SubscribeLayout.createSequentialGroup()
+                        .addGroup(SubscribeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(SubscribeLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(SubscribeLayout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(monthlySubButt, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(7, 7, 7))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SubscribeLayout.createSequentialGroup()
+                        .addComponent(yearlySubButt, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
+                .addGroup(SubscribeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(SubscribeLayout.createSequentialGroup()
+                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SubscribeLayout.createSequentialGroup()
+                        .addComponent(lifetimeSubscribeButt, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(16, 16, 16)))
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(SubscribeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                    .addComponent(jTextField1))
+                .addGap(22, 22, 22))
         );
 
-        MainTabs.addTab("Subscribe", Subscribe);
-
-        MainTabs.setSelectedIndex(1);
+        MainTabs.addTab("Shop", Subscribe);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -190,6 +289,22 @@ public class MainApp extends javax.swing.JFrame {
     private void MainTabsFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_MainTabsFocusGained
         
     }//GEN-LAST:event_MainTabsFocusGained
+
+    private void monthlySubButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthlySubButtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_monthlySubButtActionPerformed
+
+    private void yearlySubButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearlySubButtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_yearlySubButtActionPerformed
+
+    private void lifetimeSubscribeButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lifetimeSubscribeButtActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lifetimeSubscribeButtActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -304,6 +419,7 @@ public class MainApp extends javax.swing.JFrame {
         // Update Subscription Information
         
         
+        
     }
     
     //User Variables
@@ -320,8 +436,20 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JTable VideoTable;
     private javax.swing.JPanel Videos;
     private javax.swing.JTextArea WatchHistory;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
+    private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton lifetimeSubscribeButt;
+    private javax.swing.JTextPane lifetimeText;
+    private javax.swing.JButton monthlySubButt;
+    private javax.swing.JTextPane monthlyText;
+    private javax.swing.JButton yearlySubButt;
+    private javax.swing.JTextPane yearlyText;
     // End of variables declaration//GEN-END:variables
 }
