@@ -183,6 +183,8 @@ public class MainApp extends javax.swing.JFrame {
 
         MainTabs.addTab("Account", Account);
 
+        Subscribe.setMaximumSize(new java.awt.Dimension(452, 336));
+
         monthlySubButt.setText("jButton1");
         monthlySubButt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -245,7 +247,7 @@ public class MainApp extends javax.swing.JFrame {
                         .addGroup(SubscribeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lifetimeSubscribeButt, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(yearlySubButt, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         SubscribeLayout.setVerticalGroup(
             SubscribeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -258,11 +260,9 @@ public class MainApp extends javax.swing.JFrame {
                             .addComponent(monthlySubButt, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(monthlyText))
                         .addGap(84, 84, 84))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SubscribeLayout.createSequentialGroup()
-                        .addGroup(SubscribeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(yearlySubButt, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(yearlyText))
-                        .addGap(18, 18, 18)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SubscribeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(yearlySubButt, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(yearlyText)))
                 .addGap(9, 9, 9)
                 .addGroup(SubscribeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lifetimeSubscribeButt, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)

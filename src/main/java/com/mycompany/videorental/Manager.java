@@ -44,7 +44,6 @@ public class Manager {
     
     public void getSubscriptionDetails(DBComms DB) {
         String[] subsDetails = DB.getSubscriptions();
-        Arrays.toString(subsDetails);
         try{
             int i = 0;
             while(i < 3) {
