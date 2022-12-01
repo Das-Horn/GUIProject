@@ -46,10 +46,12 @@ public class Manager {
         String[] subsDetails = DB.getSubscriptions();
         try{
             int i = 0;
-            while(i < 3) {
-                subType[i] = subsDetails[i];
-                subCost[i] = subsDetails[i+1];
-                i++;
+            int iter = 0;
+            while(i < 5) {
+                subType[iter] = subsDetails[i];
+                subCost[iter] = subsDetails[i+1];
+                i = i+2;
+                iter++;
             } 
              
         }
