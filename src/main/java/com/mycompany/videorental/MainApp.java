@@ -137,6 +137,11 @@ public class MainApp extends javax.swing.JFrame {
 
         Management.setBackground(new java.awt.Color(0, 204, 255));
         Management.setText("Manage");
+        Management.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ManagementActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout AccountLayout = new javax.swing.GroupLayout(Account);
         Account.setLayout(AccountLayout);
@@ -324,6 +329,16 @@ public class MainApp extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void ManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManagementActionPerformed
+        //  Open an admin dashboard and pass required variables
+        AdminMan admin = new AdminMan();
+        
+        admin.setVars(DB, MG);
+        admin.updateInfo();
+        admin.setVisible(true);
+        Management.setVisible(false);
+    }//GEN-LAST:event_ManagementActionPerformed
+
     /**
      * @param args the command line arguments
      * @param DBS Database class
@@ -433,7 +448,6 @@ public class MainApp extends javax.swing.JFrame {
         AccountStatus.setText(MG.subscriptionID);
         WatchHistory.setText(MG.moviesRented);
         System.out.println(AccountName.getText());
-        
         // Update Subscription Information
         MG.getSubscriptionDetails(DB);
         
@@ -446,7 +460,10 @@ public class MainApp extends javax.swing.JFrame {
         lifetimeText.setText(MG.subType[2]);
         lifetimeSubButt.setText("€"+MG.subCost[2]);
         
-        
+        // Admin Button visibility
+        if(!MG.admin){
+            Management.setVisible(false);
+        }
     }
     
     //User Variables
