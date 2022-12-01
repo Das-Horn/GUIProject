@@ -127,12 +127,14 @@ public class DBComms {
            resultSet = statement.executeQuery(sqlStr);
            if (resultSet.next()) {
                return new String[] {
-                   resultSet.getString("")
+                   resultSet.getString("subscriptionType"),
+                   resultSet.getString("subscriptionCost")
                };
            }
        }
        catch(Exception e){
-           
+           System.out.println("Database Error: "+e);
        }
+       return new String[] {};
    } 
 }
