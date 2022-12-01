@@ -40,6 +40,29 @@ public class DBComms {
             return resultSet;
     } 
     
+    public String[][] getAllMovies() {
+        try {
+            int length = getMoviesLength();
+            ResultSet data = getMovies();
+            String[][] finalString = new String[length][];
+            int i = 0;
+            while(data.next()) {
+                finalString[i] = new String[] {
+                   Integer.toString(data.getInt(0)),
+                   Integer.toString(data.getInt(1)),
+                   data.getString(2),
+                   data.getString(3),
+                   data.getString(4),
+                   data.getString(5),
+                };
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        
+        return new String[][] {};
+    }
+    
     public String[] getUserData(String email) {
             try {
                 String sqlStr = "SELECT * FROM Accounts WHERE email='"+email+"'";

@@ -443,7 +443,7 @@ public class MainApp extends javax.swing.JFrame {
         lifetimeText.setText(MG.subType[2]);
         lifetimeSubButt.setText("€"+MG.subCost[2]);
         
-        // Admin Button visibility
+        // Admin Button visibilitymk
         if(!MG.admin){
             Management.setVisible(false);
         }

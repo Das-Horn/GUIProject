@@ -243,13 +243,13 @@ public class AdminMan extends javax.swing.JPanel {
     
     public void updateInfo() {
         // Update Users Management
-        DefaultTableModel userModel = (DefaultTableModel) UserTable.getModel();
-        String[][] userData = DB.getAllUsers();
-        for(String[] i: userData) {
-            userModel.addRow(i);
-        }
-        UserTable.setModel(userModel);
-        UserTable.repaint();
+//        DefaultTableModel userModel = (DefaultTableModel) UserTable.getModel();
+//        String[][] userData = DB.getAllUsers();
+//        for(String[] i: userData) {
+//            userModel.addRow(i);
+//        }
+//        UserTable.setModel(userModel);
+//        UserTable.repaint();
         // Update Movies Management
         DefaultTableModel movieModel = (DefaultTableModel) MovieTable.getModel();
         String[][] data = DB.getAllMovies();
