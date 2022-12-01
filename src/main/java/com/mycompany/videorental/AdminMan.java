@@ -4,6 +4,8 @@
  */
 package com.mycompany.videorental;
 
+import javax.swing.table.*;
+
 /**
  *
  * @author craig
@@ -241,10 +243,21 @@ public class AdminMan extends javax.swing.JPanel {
     
     public void updateInfo() {
         // Update Users Management
-        
+        DefaultTableModel userModel = (DefaultTableModel) UserTable.getModel();
+        String[][] userData = DB.getAllUsers();
+        for(String[] i: userData) {
+            userModel.addRow(i);
+        }
+        UserTable.setModel(userModel);
+        UserTable.repaint();
         // Update Movies Management
-        
-        
+        DefaultTableModel movieModel = (DefaultTableModel) MovieTable.getModel();
+        String[][] data = DB.getAllMovies();
+        for(String[] i: data) {
+            movieModel.addRow(i);
+        }
+        MovieTable.setModel(movieModel);
+        MovieTable.repaint();
     }
     
     // User Variables
