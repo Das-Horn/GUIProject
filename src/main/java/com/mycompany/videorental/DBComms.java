@@ -144,6 +144,18 @@ public class DBComms {
             }
             return result;
     }
+   
+    public void addMovie(String[] movie) {
+        try {
+            String sqlStr = "INSERT INTO Movies (length, name, genre, description, rating) VALUES ("+movie[0]+", '"+movie[1]+"', '"+movie[2]+"', '"+movie[3]+"', "+movie[4]+")";
+            connection = DriverManager.getConnection(dbURL);
+            statement = connection.createStatement();
+            statement.executeUpdate(sqlStr);  
+        }
+        catch(SQLException e) {
+            System.out.println(e);
+        }
+    }
     
    public String[] getSubscriptions() {
        try {

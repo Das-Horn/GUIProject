@@ -178,6 +178,11 @@ public class AdminMan extends javax.swing.JFrame {
 
         AddMovie.setBackground(new java.awt.Color(0, 204, 255));
         AddMovie.setText("Add Movie");
+        AddMovie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddMovieActionPerformed(evt);
+            }
+        });
 
         MovieError.setForeground(new java.awt.Color(255, 0, 0));
 
@@ -285,6 +290,23 @@ public class AdminMan extends javax.swing.JFrame {
             updateInfo();
         }
     }//GEN-LAST:event_MovieDeleteActionPerformed
+
+    private void AddMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddMovieActionPerformed
+        String length = javax.swing.JOptionPane.showInputDialog("Please enter the movie Length : (Minutes)");
+        String name = javax.swing.JOptionPane.showInputDialog("Please enter the movie Name :");
+        String genre = javax.swing.JOptionPane.showInputDialog("Please enter the movie Genre : (Action, Comedy)");
+        String description = javax.swing.JOptionPane.showInputDialog("Please enter the movie Description :");
+        String rating = javax.swing.JOptionPane.showInputDialog("Please enter the movie Rating :");
+        
+        DB.addMovie(new String[] {
+            length,
+            name,
+            genre,
+            description,
+            rating
+        });
+        updateInfo();
+    }//GEN-LAST:event_AddMovieActionPerformed
 
     /**
      * @param args the command line arguments
