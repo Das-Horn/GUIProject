@@ -4,10 +4,8 @@
  */
 package com.mycompany.videorental;
 
-import java.awt.Color;
 import java.sql.*;
 import javax.swing.table.*;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -332,11 +330,12 @@ public class MainApp extends javax.swing.JFrame {
     private void ManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManagementActionPerformed
         //  Open an admin dashboard and pass required variables
         AdminMan admin = new AdminMan();
-        
-        admin.setVars(DB, MG);
-        admin.updateInfo();
         admin.setVisible(true);
-        Management.setVisible(false);
+        admin.setVars(DB, MG);
+        System.out.println(admin.isVisible());
+        admin.updateInfo();
+        admin.repaint();
+//        Management.setVisible(false);
     }//GEN-LAST:event_ManagementActionPerformed
 
     /**
@@ -412,12 +411,12 @@ public class MainApp extends javax.swing.JFrame {
           "Rating"
         };
         // getting video information
-        ResultSet movies = DB.getMovies();
-        int movieLength = DB.getMoviesLength();
+        int movieLength = DB.getTableLength("Movies");
         String[][] MovieList = new String[movieLength][];
         int counter = 0;
         System.out.println(movieLength);
         try {
+            ResultSet movies = DB.getTable("Movies");
             while(movies.next() && movieLength > 0) {
                 MovieList[counter] = new String[] {
                     movies.getString(2),

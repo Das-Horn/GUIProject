@@ -31,6 +31,7 @@ public class DBComms {
             cnfex.printStackTrace();
         }
     }
+    
     public ResultSet getTable(String tableName) throws SQLException { // Method to get all entries for a table
             String sqlStr = "Select * from "+tableName;
             connection = DriverManager.getConnection(dbURL);
@@ -40,22 +41,23 @@ public class DBComms {
             return resultSet;
     } 
     
-    public String[][] getAllMovies() {
+    public String[][] getAllData(String tableName) {
         try {
-            int length = getMoviesLength();
-            ResultSet data = getMovies();
+            int length = getTableLength(tableName);
+            ResultSet data = getTable(tableName);
+            ResultSetMetaData meta = data.getMetaData();
+            
             String[][] finalString = new String[length][];
             int i = 0;
+            int cols = meta.getColumnCount();
             while(data.next()) {
-                finalString[i] = new String[] {
-                   Integer.toString(data.getInt(0)),
-                   Integer.toString(data.getInt(1)),
-                   data.getString(2),
-                   data.getString(3),
-                   data.getString(4),
-                   data.getString(5),
-                };
+                finalString[i] = new String[cols];
+                for(int j = 1; j <= cols; j++) {
+                    finalString[i][j - 1] = data.getString(j);
+                }
+                i++;
             }
+            return finalString;
         } catch (SQLException e) {
             System.out.println(e);
         }
@@ -114,23 +116,11 @@ public class DBComms {
             System.out.println(e);
         }
     }
-        
-    ResultSet getMovies() {
-            try {
-                String sqlStr = "SELECT * FROM Movies";
-                connection = DriverManager.getConnection(dbURL);
-                statement = connection.createStatement();
-                resultSet = statement.executeQuery(sqlStr);
-            } catch (SQLException e) {
-                System.out.println(e);
-            }
-            return resultSet;
-    }
     
-    int getMoviesLength() {
+    int getTableLength(String table) {
             int result = 0;
             try {
-                String sqlStr = "SELECT COUNT(*) FROM Movies";
+                String sqlStr = "SELECT COUNT(*) FROM "+table;
                 connection = DriverManager.getConnection(dbURL);
                 statement = connection.createStatement();
                 resultSet = statement.executeQuery(sqlStr);
