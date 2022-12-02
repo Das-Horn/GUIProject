@@ -9,7 +9,8 @@ import java.util.regex.Pattern;
 
 /**
  *
- * @author Craig
+ * @author Craig Doyle
+ * @author Ben Stobie
  */
 public class LoginForm extends javax.swing.JDialog {
 
@@ -195,9 +196,8 @@ public class LoginForm extends javax.swing.JDialog {
                 DB
             );
             if(lgin) { 
-                MA.setStatic(DB, MG);
-                MA.setVisible(true);
-                this.dispose(); 
+                this.dispose();                MA.setStatic(DB, MG);
+                MA.setVisible(true); 
                 MA.updateInfo();
             }
         }

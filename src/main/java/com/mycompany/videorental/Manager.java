@@ -8,7 +8,8 @@ import java.util.Arrays;
 
 /**
  *
- * @author Craig
+ * @author Craig Doyle
+ * @author Ben Stobie
  */
 public class Manager {
     // Variables

@@ -13,7 +13,8 @@ import java.sql.Statement;
 import java.sql.ResultSetMetaData;
 /**
  *
- * @author b3nst
+ * @author Ben Stobie
+ * @author Craig Doyle
  */
 public class DBComms {
     Connection connection = null;

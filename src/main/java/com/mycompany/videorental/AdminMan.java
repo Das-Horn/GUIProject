@@ -9,7 +9,8 @@ import java.util.Arrays;
 
 /**
  *
- * @author craig
+ * @author Craig Doyle
+ * @author Ben Stobie
  */
 public class AdminMan extends javax.swing.JFrame {
 

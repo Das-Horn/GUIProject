@@ -7,14 +7,15 @@ package com.mycompany.videorental;
 
 /**
  *
- * @author Craig
+ * @author Craig Doyle
+ * @author Ben Stobie
  */
 public class VideoRental {
 
     public static void main(String[] args) {
         // Set All Variables
         MainApp MA = new MainApp();
-        LoginForm LF = new LoginForm(null ,true);
+        LoginForm LF = new LoginForm(null ,false);
         DBComms DB = new DBComms();
         Manager MG = new Manager();
         // Start through login Form
