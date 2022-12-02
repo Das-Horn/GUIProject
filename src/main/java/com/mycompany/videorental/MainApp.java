@@ -11,7 +11,8 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Craig
+ * @author Craig Doyle
+ * @author Ben Stobie
  */
 public class MainApp extends javax.swing.JFrame {
 
@@ -381,23 +382,6 @@ public class MainApp extends javax.swing.JFrame {
     public void setStatic(DBComms DBS, Manager MGR) {
         DB = DBS;
         MG = MGR;
-        
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainApp.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
     }
     
     
