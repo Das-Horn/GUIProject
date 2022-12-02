@@ -39,7 +39,6 @@ public class AdminMan extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         UserID = new javax.swing.JTextField();
         UserDelete = new javax.swing.JButton();
-        AddUser = new javax.swing.JButton();
         UserError = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -79,9 +78,6 @@ public class AdminMan extends javax.swing.JFrame {
             }
         });
 
-        AddUser.setBackground(new java.awt.Color(0, 204, 255));
-        AddUser.setText("Add User");
-
         UserError.setForeground(new java.awt.Color(255, 0, 0));
 
         javax.swing.GroupLayout UserContLayout = new javax.swing.GroupLayout(UserCont);
@@ -91,7 +87,6 @@ public class AdminMan extends javax.swing.JFrame {
             .addGroup(UserContLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(UserContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(AddUser)
                     .addGroup(UserContLayout.createSequentialGroup()
                         .addComponent(UserID, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -99,7 +94,7 @@ public class AdminMan extends javax.swing.JFrame {
                     .addGroup(UserContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(158, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UserContLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(UserError, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -114,9 +109,7 @@ public class AdminMan extends javax.swing.JFrame {
                 .addGroup(UserContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(UserID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(UserDelete))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AddUser)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(41, 41, 41)
                 .addComponent(UserError, javax.swing.GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE))
         );
 
@@ -376,7 +369,6 @@ public class AdminMan extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddMovie;
-    private javax.swing.JButton AddUser;
     private javax.swing.JButton MovieDelete;
     private javax.swing.JLabel MovieError;
     private javax.swing.JTextField MovieID;

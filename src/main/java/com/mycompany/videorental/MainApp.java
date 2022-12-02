@@ -51,7 +51,7 @@ public class MainApp extends javax.swing.JFrame {
         yearlySubButt = new javax.swing.JButton();
         lifetimeSubButt = new javax.swing.JButton();
         rentedVideo = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        RentMovie = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         monthlyText = new javax.swing.JLabel();
         yearlyText = new javax.swing.JLabel();
@@ -109,6 +109,7 @@ public class MainApp extends javax.swing.JFrame {
 
         MainTabs.addTab("Videos", Videos);
 
+        WatchHistory.setEditable(false);
         WatchHistory.setColumns(20);
         WatchHistory.setRows(5);
         jScrollPane1.setViewportView(WatchHistory);
@@ -217,11 +218,11 @@ public class MainApp extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(0, 153, 255));
-        jButton4.setText("€4.99");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        RentMovie.setBackground(new java.awt.Color(0, 153, 255));
+        RentMovie.setText("€4.99");
+        RentMovie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                RentMovieActionPerformed(evt);
             }
         });
 
@@ -243,7 +244,7 @@ public class MainApp extends javax.swing.JFrame {
                     .addGroup(SubscribeLayout.createSequentialGroup()
                         .addComponent(rentedVideo, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(RentMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(SubscribeLayout.createSequentialGroup()
                         .addComponent(monthlyText, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -278,7 +279,7 @@ public class MainApp extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(SubscribeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                    .addComponent(RentMovie, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                     .addComponent(rentedVideo))
                 .addGap(22, 22, 22))
         );
@@ -331,7 +332,7 @@ public class MainApp extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_lifetimeSubButtActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void RentMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RentMovieActionPerformed
         String input = rentedVideo.getText();
         try {
             if (DB.checkMovie(input) == true){
@@ -344,7 +345,7 @@ public class MainApp extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, "rentMovie Error", ex);
         }
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_RentMovieActionPerformed
 
     private void ManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManagementActionPerformed
         //  Open an admin dashboard and pass required variables
@@ -447,7 +448,11 @@ public class MainApp extends javax.swing.JFrame {
         AccountName.setText(MG.accountName);
         Email.setText(MG.accountEmail);
         AccountStatus.setText(MG.subscriptionID);
-        WatchHistory.setText(MG.moviesRented);
+        // Movie History Filtering
+        String movies = String.join("\n" , MG.moviesRented.split("\\|"));
+        WatchHistory.setText(movies);
+        
+        
         System.out.println(AccountName.getText());
         // Update Subscription Information
         MG.getSubscriptionDetails(DB);
@@ -478,11 +483,11 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JLabel Icon;
     private javax.swing.JTabbedPane MainTabs;
     private javax.swing.JButton Management;
+    private javax.swing.JButton RentMovie;
     private javax.swing.JPanel Subscribe;
     private javax.swing.JTable VideoTable;
     private javax.swing.JPanel Videos;
     private javax.swing.JTextArea WatchHistory;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
