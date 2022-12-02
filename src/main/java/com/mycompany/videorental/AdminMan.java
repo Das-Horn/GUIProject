@@ -34,21 +34,23 @@ public class AdminMan extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         UserTable = new javax.swing.JTable();
-        jPanel2 = new javax.swing.JPanel();
+        UserCont = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        UserID = new javax.swing.JTextField();
+        UserDelete = new javax.swing.JButton();
+        AddUser = new javax.swing.JButton();
+        UserError = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         MovieTable = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        MovieID = new javax.swing.JTextField();
+        MovieDelete = new javax.swing.JButton();
+        AddMovie = new javax.swing.JButton();
+        MovieError = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Admin Dashboard");
@@ -67,44 +69,55 @@ public class AdminMan extends javax.swing.JFrame {
 
         jLabel2.setText("Delete User :");
 
-        jTextField1.setText("User ID");
+        UserID.setText("User ID");
 
-        jButton1.setBackground(new java.awt.Color(0, 204, 255));
-        jButton1.setText("Delete");
+        UserDelete.setBackground(new java.awt.Color(0, 204, 255));
+        UserDelete.setText("Delete");
+        UserDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UserDeleteActionPerformed(evt);
+            }
+        });
 
-        jButton2.setBackground(new java.awt.Color(0, 204, 255));
-        jButton2.setText("Add User");
+        AddUser.setBackground(new java.awt.Color(0, 204, 255));
+        AddUser.setText("Add User");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        UserError.setForeground(new java.awt.Color(255, 0, 0));
+
+        javax.swing.GroupLayout UserContLayout = new javax.swing.GroupLayout(UserCont);
+        UserCont.setLayout(UserContLayout);
+        UserContLayout.setHorizontalGroup(
+            UserContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(UserContLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(UserContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(AddUser)
+                    .addGroup(UserContLayout.createSequentialGroup()
+                        .addComponent(UserID, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(UserDelete))
+                    .addGroup(UserContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 84, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UserContLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(UserError, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        UserContLayout.setVerticalGroup(
+            UserContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(UserContLayout.createSequentialGroup()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                .addGroup(UserContLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(UserID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(UserDelete))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addComponent(AddUser)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(UserError, javax.swing.GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -112,14 +125,14 @@ public class AdminMan extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(UserCont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(UserCont, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Users", jPanel1);
@@ -153,13 +166,20 @@ public class AdminMan extends javax.swing.JFrame {
 
         jLabel4.setText("Delete Movie : ");
 
-        jTextField2.setText("Movie ID");
+        MovieID.setText("Movie ID");
 
-        jButton3.setBackground(new java.awt.Color(0, 204, 255));
-        jButton3.setText("Delete");
+        MovieDelete.setBackground(new java.awt.Color(0, 204, 255));
+        MovieDelete.setText("Delete");
+        MovieDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MovieDeleteActionPerformed(evt);
+            }
+        });
 
-        jButton4.setBackground(new java.awt.Color(0, 204, 255));
-        jButton4.setText("Add Movie");
+        AddMovie.setBackground(new java.awt.Color(0, 204, 255));
+        AddMovie.setText("Add Movie");
+
+        MovieError.setForeground(new java.awt.Color(255, 0, 0));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -169,14 +189,17 @@ public class AdminMan extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(MovieID, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3))
+                        .addComponent(MovieDelete))
                     .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE))
-                    .addComponent(jButton4))
+                    .addComponent(AddMovie))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(MovieError, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,11 +209,12 @@ public class AdminMan extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
+                    .addComponent(MovieID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(MovieDelete))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton4)
-                .addGap(0, 35, Short.MAX_VALUE))
+                .addComponent(AddMovie)
+                .addGap(18, 18, 18)
+                .addComponent(MovieError, javax.swing.GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -223,6 +247,44 @@ public class AdminMan extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void UserDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserDeleteActionPerformed
+        //Get & Check the input
+        UserError.setText("");
+        try {
+            String val = UserID.getText();
+            int id = Integer.parseInt(val);
+            // TODO add check for if user exists first.
+            int code = DB.deleteItemByID(id, "Accounts");
+            if(code == -1) {
+                UserError.setText("An Error Occured deleting the User.");
+            }
+        } catch (Exception e) {
+            UserError.setText("Error with ID entered...");
+            System.out.println(e);
+        } finally {
+            updateInfo();
+        }
+    }//GEN-LAST:event_UserDeleteActionPerformed
+
+    private void MovieDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MovieDeleteActionPerformed
+        //Get & Check the input
+        MovieError.setText("");
+        try {
+            String val = MovieID.getText();
+            int id = Integer.parseInt(val);
+            // TODO add check for if user exists first.
+            int code = DB.deleteItemByID(id, "Movies");
+            if(code == -1) {
+                MovieError.setText("An Error Occured deleting the User.");
+            }
+        } catch (Exception e) {
+            MovieError.setText("Error with ID entered...");
+            System.out.println(e);
+        } finally {
+            updateInfo();
+        }
+    }//GEN-LAST:event_MovieDeleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -267,6 +329,7 @@ public class AdminMan extends javax.swing.JFrame {
     public void updateInfo() {
         // Update Users Management
         DefaultTableModel userModel = (DefaultTableModel) UserTable.getModel();
+        userModel.setRowCount(0);
         String[][] userData = DB.getAllData("Accounts");
         for(String[] i: userData) {
             userModel.addRow(i);
@@ -275,6 +338,7 @@ public class AdminMan extends javax.swing.JFrame {
         UserTable.repaint();
         // Update Movies Management
         DefaultTableModel movieModel = (DefaultTableModel) MovieTable.getModel();
+        movieModel.setRowCount(0);
         String[][] data = DB.getAllData("Movies");
 //        System.out.println(Arrays.deepToString(data));
         for(String[] i: data) {
@@ -289,24 +353,26 @@ public class AdminMan extends javax.swing.JFrame {
     Manager MG;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddMovie;
+    private javax.swing.JButton AddUser;
+    private javax.swing.JButton MovieDelete;
+    private javax.swing.JLabel MovieError;
+    private javax.swing.JTextField MovieID;
     private javax.swing.JTable MovieTable;
+    private javax.swing.JPanel UserCont;
+    private javax.swing.JButton UserDelete;
+    private javax.swing.JLabel UserError;
+    private javax.swing.JTextField UserID;
     private javax.swing.JTable UserTable;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

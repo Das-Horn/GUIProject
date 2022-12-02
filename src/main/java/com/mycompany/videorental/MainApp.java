@@ -98,7 +98,9 @@ public class MainApp extends javax.swing.JFrame {
         Videos.setLayout(VideosLayout);
         VideosLayout.setHorizontalGroup(
             VideosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VideosLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 465, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         VideosLayout.setVerticalGroup(
             VideosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

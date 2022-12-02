@@ -66,6 +66,18 @@ public class DBComms {
         return new String[][] {};
     }
     
+    public int deleteItemByID(int ID, String tableName) {
+        try{
+            String sqlStr = "DELETE FROM "+tableName+" WHERE ID="+ID;
+            connection = DriverManager.getConnection(dbURL);
+            statement = connection.createStatement();
+            return statement.executeUpdate(sqlStr);
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return -1;
+    }
+    
     public String[] getUserData(String email) {
             try {
                 String sqlStr = "SELECT * FROM Accounts WHERE email='"+email+"'";
