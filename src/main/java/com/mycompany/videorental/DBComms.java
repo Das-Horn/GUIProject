@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.time.Instant;
 /**
  *
  * @author Ben Stobie
@@ -225,9 +226,27 @@ public class DBComms {
    }
    
    public void subscribe(int id, String accountName) throws SQLException {
-       String sqlStr = "UPDATE Accounts SET subscriptionID ="+id+" WHERE ID = "+accountName;
+       long subTime = getSubTime(id) + Instant.now().getEpochSecond();
+       String sqlStr = "UPDATE Accounts SET subscriptionID ="+id+", subscriptionTime = "+subTime+" WHERE ID = "+accountName;
        connection = DriverManager.getConnection(dbURL);
        statement = connection.createStatement();
        statement.executeUpdate(sqlStr);
    }
+   
+   public long getSubTime(int id) throws SQLException {
+       String sqlStr = "SELECT subscriptionPeriod from Subscriptions WHERE ID = "+id;
+       connection = DriverManager.getConnection(dbURL);
+       statement = connection.createStatement();
+       resultSet = statement.executeQuery(sqlStr);
+       if (resultSet.next()) {
+           return resultSet.getInt("subscriptionPeriod");
+       }
+       else {
+           return 0;
+       }
+           
+   }
+
+
+   
 }
