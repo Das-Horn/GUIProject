@@ -302,7 +302,7 @@ public class MainApp extends javax.swing.JFrame {
     private void monthlySubButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_monthlySubButtActionPerformed
         try {
             DB.subscribe(1, MG.accountID);
-            monthlySubButt.setText("Subscribed");
+            updateInfo();
             
         } catch (SQLException ex) {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
@@ -312,7 +312,7 @@ public class MainApp extends javax.swing.JFrame {
     private void yearlySubButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearlySubButtActionPerformed
         try {
             DB.subscribe(2, MG.accountID);
-            yearlySubButt.setText("Subscribed");
+            updateInfo();
         } catch (SQLException ex) {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -321,7 +321,7 @@ public class MainApp extends javax.swing.JFrame {
     private void lifetimeSubButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lifetimeSubButtActionPerformed
         try {
             DB.subscribe(3, MG.accountID);
-            lifetimeSubButt.setText("Subscribed");
+            updateInfo();
         } catch (SQLException ex) {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
         }

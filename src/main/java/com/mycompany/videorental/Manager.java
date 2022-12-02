@@ -36,7 +36,7 @@ public class Manager {
         try {
             accountID = userDetails[0];
             accountName = userDetails[1];
-            subscriptionID = userDetails[2];
+            subscriptionID = DB.getSubNameByID(userDetails[2]);
             moviesRented = userDetails[4];
             autoRenew = userDetails[5].equals("true");
         } catch (Exception e) {

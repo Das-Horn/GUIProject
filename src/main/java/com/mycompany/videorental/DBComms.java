@@ -178,6 +178,22 @@ public class DBComms {
        return new String[] {};
    } 
    
+   public String getSubNameByID(String id) throws SQLException {
+       String sqlStr = "SELECT subscriptionType FROM Subscriptions WHERE ID = "+id;
+       connection = DriverManager.getConnection(dbURL);
+       statement = connection.createStatement();
+       resultSet = statement.executeQuery(sqlStr);
+       if(resultSet.next()){
+           return "Subscription type: "+ resultSet.getString("subscriptionType");
+       }
+       else if("4".equals(id)) {
+           return "Not Subscribed";
+       }
+       else {
+           return "subscription ID error";
+       }
+
+   }
    public void subscribe(int id, String accountName) throws SQLException {
        String sqlStr = "UPDATE Accounts SET subscriptionID ="+id+" WHERE ID = "+accountName;
        connection = DriverManager.getConnection(dbURL);
