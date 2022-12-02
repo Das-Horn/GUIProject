@@ -108,7 +108,7 @@ public class DBComms {
     
     public void addUser(String email, String name, String password) {
         try {
-            String sqlStr = "INSERT INTO Accounts (accountName, email, password, subscriptionID, moviesRented, autoRenew, accountStatus) VALUES ('"+name+"', '"+email+"', '"+password+"', 1, '', 'false', 'none')";
+            String sqlStr = "INSERT INTO Accounts (accountName, email, password, subscriptionID, moviesRented, autoRenew, accountStatus) VALUES ('"+name+"', '"+email+"', '"+password+"', 4, '', 'false', 'none')";
             connection = DriverManager.getConnection(dbURL);
             statement = connection.createStatement();
             statement.executeUpdate(sqlStr);  

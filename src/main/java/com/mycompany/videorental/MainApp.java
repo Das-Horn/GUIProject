@@ -301,6 +301,7 @@ public class MainApp extends javax.swing.JFrame {
         try {
             DB.subscribe(1, MG.accountID);
             monthlySubButt.setText("Subscribed");
+            
         } catch (SQLException ex) {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
         }
