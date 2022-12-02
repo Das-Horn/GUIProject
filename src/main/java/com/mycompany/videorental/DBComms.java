@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSetMetaData;
+import java.util.ArrayList;
+import java.util.Iterator;
 /**
  *
  * @author Ben Stobie
@@ -194,6 +196,34 @@ public class DBComms {
        }
 
    }
+   
+   public boolean checkMovie(String userIn) throws SQLException {
+       String sqlStr = "SELECT name FROM Movies";
+       connection = DriverManager.getConnection(dbURL);
+       statement = connection.createStatement();
+       resultSet = statement.executeQuery(sqlStr);
+       ArrayList movies = new ArrayList();
+       while (resultSet.next()) {
+           movies.add(resultSet.getString("name"));
+       }   
+        for (Iterator it = movies.iterator(); it.hasNext();) {
+            if (userIn.equals((String) it.next())){
+                System.out.println("Match Found");
+                return true;               
+            }
+        }
+        return false;
+   }
+   
+   public void rentMovie(String moviesRented, String userIn, String accountID) throws SQLException{
+       String updateStr = moviesRented+userIn+" | ";
+       String sqlStr = "UPDATE Accounts SET moviesRented = "+"'"+updateStr+"'"+" WHERE ID = "+accountID;
+       System.out.println(sqlStr);
+       connection = DriverManager.getConnection(dbURL);
+       statement = connection.createStatement();
+       statement.executeUpdate(sqlStr);
+   }
+   
    public void subscribe(int id, String accountName) throws SQLException {
        String sqlStr = "UPDATE Accounts SET subscriptionID ="+id+" WHERE ID = "+accountName;
        connection = DriverManager.getConnection(dbURL);

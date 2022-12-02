@@ -50,7 +50,7 @@ public class MainApp extends javax.swing.JFrame {
         monthlySubButt = new javax.swing.JButton();
         yearlySubButt = new javax.swing.JButton();
         lifetimeSubButt = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        rentedVideo = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         monthlyText = new javax.swing.JLabel();
@@ -241,7 +241,7 @@ public class MainApp extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(SubscribeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(SubscribeLayout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(rentedVideo, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -279,7 +279,7 @@ public class MainApp extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(SubscribeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                    .addComponent(jTextField1))
+                    .addComponent(rentedVideo))
                 .addGap(22, 22, 22))
         );
 
@@ -332,7 +332,18 @@ public class MainApp extends javax.swing.JFrame {
     }//GEN-LAST:event_lifetimeSubButtActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        String input = rentedVideo.getText();
+        try {
+            if (DB.checkMovie(input) == true){
+                DB.rentMovie(MG.moviesRented, input, MG.accountID);
+                updateInfo();
+            }
+            else {
+                System.out.println("User input Error");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, "rentMovie Error", ex);
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void ManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ManagementActionPerformed
@@ -477,11 +488,11 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton lifetimeSubButt;
     private javax.swing.JLabel lifetimeText;
     private javax.swing.JButton monthlySubButt;
     private javax.swing.JLabel monthlyText;
+    private javax.swing.JTextField rentedVideo;
     private javax.swing.JButton yearlySubButt;
     private javax.swing.JLabel yearlyText;
     // End of variables declaration//GEN-END:variables
