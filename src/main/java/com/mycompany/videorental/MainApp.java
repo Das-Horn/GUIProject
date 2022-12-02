@@ -193,6 +193,7 @@ public class MainApp extends javax.swing.JFrame {
 
         Subscribe.setMaximumSize(new java.awt.Dimension(452, 336));
 
+        monthlySubButt.setBackground(new java.awt.Color(0, 153, 255));
         monthlySubButt.setText("jButton1");
         monthlySubButt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,6 +201,7 @@ public class MainApp extends javax.swing.JFrame {
             }
         });
 
+        yearlySubButt.setBackground(new java.awt.Color(0, 153, 255));
         yearlySubButt.setText("jButton1");
         yearlySubButt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,6 +209,7 @@ public class MainApp extends javax.swing.JFrame {
             }
         });
 
+        lifetimeSubButt.setBackground(new java.awt.Color(0, 153, 255));
         lifetimeSubButt.setText("jButton1");
         lifetimeSubButt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -214,6 +217,7 @@ public class MainApp extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setBackground(new java.awt.Color(0, 153, 255));
         jButton4.setText("€4.99");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
