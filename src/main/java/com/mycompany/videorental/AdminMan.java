@@ -4,6 +4,7 @@
  */
 package com.mycompany.videorental;
 
+import java.awt.event.ActionEvent;
 import javax.swing.table.DefaultTableModel;
 import java.util.Arrays;
 
@@ -69,6 +70,11 @@ public class AdminMan extends javax.swing.JFrame {
         jLabel2.setText("Delete User :");
 
         UserID.setText("User ID");
+        UserID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                UserIDKeyPressed(evt);
+            }
+        });
 
         UserDelete.setBackground(new java.awt.Color(0, 204, 255));
         UserDelete.setText("Delete");
@@ -160,6 +166,11 @@ public class AdminMan extends javax.swing.JFrame {
         jLabel4.setText("Delete Movie : ");
 
         MovieID.setText("Movie ID");
+        MovieID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                MovieIDKeyPressed(evt);
+            }
+        });
 
         MovieDelete.setBackground(new java.awt.Color(0, 204, 255));
         MovieDelete.setText("Delete");
@@ -300,6 +311,18 @@ public class AdminMan extends javax.swing.JFrame {
         });
         updateInfo();
     }//GEN-LAST:event_AddMovieActionPerformed
+
+    private void UserIDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_UserIDKeyPressed
+        if(evt.getKeyCode() == 10) {
+            this.UserDeleteActionPerformed(new ActionEvent(this,0, "") );
+        }
+    }//GEN-LAST:event_UserIDKeyPressed
+
+    private void MovieIDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MovieIDKeyPressed
+        if(evt.getKeyCode() == 10) {
+            this.MovieDeleteActionPerformed(new ActionEvent(this,0, "") );
+        }
+    }//GEN-LAST:event_MovieIDKeyPressed
 
     /**
      * @param args the command line arguments

@@ -4,6 +4,7 @@
  */
 package com.mycompany.videorental;
 
+import java.awt.event.ActionEvent;
 import java.sql.*;
 import javax.swing.table.*;
 import java.util.logging.Level;
@@ -56,6 +57,7 @@ public class MainApp extends javax.swing.JFrame {
         monthlyText = new javax.swing.JLabel();
         yearlyText = new javax.swing.JLabel();
         lifetimeText = new javax.swing.JLabel();
+        ShopError = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Video Rentals");
@@ -218,6 +220,12 @@ public class MainApp extends javax.swing.JFrame {
             }
         });
 
+        rentedVideo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                rentedVideoKeyPressed(evt);
+            }
+        });
+
         RentMovie.setBackground(new java.awt.Color(0, 153, 255));
         RentMovie.setText("€4.99");
         RentMovie.addActionListener(new java.awt.event.ActionListener() {
@@ -234,6 +242,8 @@ public class MainApp extends javax.swing.JFrame {
 
         lifetimeText.setText("jLabel3");
 
+        ShopError.setForeground(new java.awt.Color(255, 0, 0));
+
         javax.swing.GroupLayout SubscribeLayout = new javax.swing.GroupLayout(Subscribe);
         Subscribe.setLayout(SubscribeLayout);
         SubscribeLayout.setHorizontalGroup(
@@ -241,10 +251,6 @@ public class MainApp extends javax.swing.JFrame {
             .addGroup(SubscribeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(SubscribeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(SubscribeLayout.createSequentialGroup()
-                        .addComponent(rentedVideo, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(RentMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(SubscribeLayout.createSequentialGroup()
                         .addComponent(monthlyText, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -257,8 +263,15 @@ public class MainApp extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(SubscribeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lifetimeSubButt, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(yearlySubButt, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(yearlySubButt, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(SubscribeLayout.createSequentialGroup()
+                        .addComponent(rentedVideo, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(RentMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(59, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SubscribeLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(ShopError, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         SubscribeLayout.setVerticalGroup(
             SubscribeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -281,7 +294,8 @@ public class MainApp extends javax.swing.JFrame {
                 .addGroup(SubscribeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(RentMovie, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
                     .addComponent(rentedVideo))
-                .addGap(22, 22, 22))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addComponent(ShopError, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         MainTabs.addTab("Shop", Subscribe);
@@ -341,9 +355,11 @@ public class MainApp extends javax.swing.JFrame {
             }
             else {
                 System.out.println("User input Error");
+                ShopError.setText("Error with movie name please try again...");
             }
         } catch (SQLException ex) {
             Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, "rentMovie Error", ex);
+            ShopError.setText("Error with Name for movie please try again...");
         }
     }//GEN-LAST:event_RentMovieActionPerformed
 
@@ -357,6 +373,12 @@ public class MainApp extends javax.swing.JFrame {
         admin.repaint();
 //        Management.setVisible(false);
     }//GEN-LAST:event_ManagementActionPerformed
+
+    private void rentedVideoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rentedVideoKeyPressed
+        if(evt.getKeyCode() == 10) {
+            this.RentMovieActionPerformed(new ActionEvent(this,0, "") );
+        }
+    }//GEN-LAST:event_rentedVideoKeyPressed
 
     /**
      * @param args the command line arguments
@@ -476,6 +498,7 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JTabbedPane MainTabs;
     private javax.swing.JButton Management;
     private javax.swing.JButton RentMovie;
+    private javax.swing.JLabel ShopError;
     private javax.swing.JPanel Subscribe;
     private javax.swing.JTable VideoTable;
     private javax.swing.JPanel Videos;
