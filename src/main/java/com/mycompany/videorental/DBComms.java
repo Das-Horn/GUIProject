@@ -233,6 +233,13 @@ public class DBComms {
        statement.executeUpdate(sqlStr);
    }
    
+   public void unsubscribe(String accountName) throws SQLException {
+       String sqlStr = "UPDATE Accounts SET subscriptionID = 4, subscriptionTime = 0 WHERE ID = "+accountName;
+       connection = DriverManager.getConnection(dbURL);
+       statement = connection.createStatement();
+       statement.executeUpdate(sqlStr);
+   }
+   
    public long getSubTime(int id) throws SQLException {
        String sqlStr = "SELECT subscriptionPeriod from Subscriptions WHERE ID = "+id;
        connection = DriverManager.getConnection(dbURL);

@@ -47,6 +47,7 @@ public class MainApp extends javax.swing.JFrame {
         AccountStatus = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         Management = new javax.swing.JButton();
+        unSubButt = new javax.swing.JButton();
         Subscribe = new javax.swing.JPanel();
         monthlySubButt = new javax.swing.JButton();
         yearlySubButt = new javax.swing.JButton();
@@ -147,6 +148,14 @@ public class MainApp extends javax.swing.JFrame {
             }
         });
 
+        unSubButt.setBackground(new java.awt.Color(0, 204, 255));
+        unSubButt.setText("Unsubscribe");
+        unSubButt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unSubButtActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout AccountLayout = new javax.swing.GroupLayout(Account);
         Account.setLayout(AccountLayout);
         AccountLayout.setHorizontalGroup(
@@ -154,7 +163,7 @@ public class MainApp extends javax.swing.JFrame {
             .addGroup(AccountLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(AccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 440, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
                     .addGroup(AccountLayout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -168,7 +177,11 @@ public class MainApp extends javax.swing.JFrame {
                                     .addComponent(Email, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(AccountStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Management, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                .addGroup(AccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Management, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(AccountLayout.createSequentialGroup()
+                                        .addComponent(unSubButt)
+                                        .addGap(0, 0, Short.MAX_VALUE)))))))
                 .addContainerGap())
         );
         AccountLayout.setVerticalGroup(
@@ -183,7 +196,9 @@ public class MainApp extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(Email)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(AccountStatus)
+                        .addGroup(AccountLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(AccountStatus)
+                            .addComponent(unSubButt))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1))
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -268,7 +283,7 @@ public class MainApp extends javax.swing.JFrame {
                         .addComponent(rentedVideo, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(RentMovie, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SubscribeLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(ShopError, javax.swing.GroupLayout.PREFERRED_SIZE, 385, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -380,6 +395,15 @@ public class MainApp extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_rentedVideoKeyPressed
 
+    private void unSubButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unSubButtActionPerformed
+        try {
+            DB.unsubscribe(MG.accountID);
+            updateInfo();
+        } catch (SQLException ex) {
+            Logger.getLogger(MainApp.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_unSubButtActionPerformed
+
     /**
      * @param args the command line arguments
      * @param DBS Database class
@@ -483,6 +507,12 @@ public class MainApp extends javax.swing.JFrame {
         // Admin Button visibilitymk
         if(!MG.admin){
             Management.setVisible(false);
+        }        
+        if("Subscription type: Not-Subscribed".equals(MG.subscriptionID)) {
+            unSubButt.setVisible(false);
+        }
+        else {
+            unSubButt.setVisible(true);
         }
     }
     
@@ -513,6 +543,7 @@ public class MainApp extends javax.swing.JFrame {
     private javax.swing.JButton monthlySubButt;
     private javax.swing.JLabel monthlyText;
     private javax.swing.JTextField rentedVideo;
+    private javax.swing.JButton unSubButt;
     private javax.swing.JButton yearlySubButt;
     private javax.swing.JLabel yearlyText;
     // End of variables declaration//GEN-END:variables
