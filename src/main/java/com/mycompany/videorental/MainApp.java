@@ -405,14 +405,6 @@ public class MainApp extends javax.swing.JFrame {
     
     
     public void updateInfo() {
-        // Update Video Table
-        String[] columns = new String[] {
-          "Length",
-          "Movie Name",
-          "Genre",
-          "Description",
-          "Rating"
-        };
         // getting video information
         int movieLength = DB.getTableLength("Movies");
         String[][] MovieList = new String[movieLength][];
