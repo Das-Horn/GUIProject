@@ -201,6 +201,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="User ID"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="UserIDKeyPressed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="UserDelete">
                   <Properties>
@@ -372,6 +375,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Movie ID"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="MovieIDKeyPressed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="MovieDelete">
                   <Properties>

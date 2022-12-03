@@ -296,11 +296,6 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="rentedVideo" min="-2" pref="307" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="RentMovie" min="-2" pref="87" max="-2" attributes="0"/>
-                          </Group>
                           <Component id="jLabel2" alignment="0" min="-2" pref="228" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="monthlyText" min="-2" pref="207" max="-2" attributes="0"/>
@@ -318,8 +313,17 @@
                                   <Component id="yearlySubButt" alignment="0" min="-2" pref="92" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="rentedVideo" min="-2" pref="307" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="RentMovie" min="-2" pref="87" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                       <EmptySpace pref="59" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="ShopError" min="-2" pref="385" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -348,7 +352,8 @@
                           <Component id="RentMovie" pref="38" max="32767" attributes="0"/>
                           <Component id="rentedVideo" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                      <EmptySpace pref="42" max="32767" attributes="0"/>
+                      <Component id="ShopError" min="-2" pref="18" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -388,6 +393,9 @@
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="rentedVideo">
+              <Events>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="rentedVideoKeyPressed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="RentMovie">
               <Properties>
@@ -418,6 +426,13 @@
             <Component class="javax.swing.JLabel" name="lifetimeText">
               <Properties>
                 <Property name="text" type="java.lang.String" value="jLabel3"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="ShopError">
+              <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="0" green="0" red="ff" type="rgb"/>
+                </Property>
               </Properties>
             </Component>
           </SubComponents>
