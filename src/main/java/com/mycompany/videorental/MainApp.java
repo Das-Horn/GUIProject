@@ -335,7 +335,7 @@ public class MainApp extends javax.swing.JFrame {
     private void RentMovieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RentMovieActionPerformed
         String input = rentedVideo.getText();
         try {
-            if (DB.checkMovie(input) == true){
+            if (DB.checkMovie(input)){
                 DB.rentMovie(MG.moviesRented, input, MG.accountID);
                 updateInfo();
             }
